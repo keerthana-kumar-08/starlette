@@ -1,84 +1,46 @@
 import { motion } from 'framer-motion';
-import { Laptop, Smartphone, PenTool, Globe } from 'lucide-react';
+import { ServiceData } from '../data/ServiceData';
 
-const services = [
-  {
-    icon: <Laptop size={24} />,
-    title: 'Web Development',
-    description:
-      'Create modern and responsive websites using the latest technologies.',
-  },
-  {
-    icon: <Smartphone size={24} />,
-    title: 'Mobile Development',
-    description: 'Build native and cross-platform mobile applications.',
-  },
-  {
-    icon: <PenTool size={24} />,
-    title: 'UI/UX Design',
-    description:
-      'Design beautiful and intuitive user interfaces and experiences.',
-  },
-  {
-    icon: <Globe size={24} />,
-    title: 'Digital Marketing',
-    description:
-      'Grow your online presence with effective digital marketing strategies.',
-  },
-];
-
-const Services = () => {
+const Services = ({ fadeIn, stagger } : any) => {
   return (
-    <section
-      id="services"
-      className="py-20 bg-gradient-to-br from-gray-50 to-gray-100"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Our{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-              Services
-            </span>
-          </motion.h2>
-          <motion.p
-            className="text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Comprehensive solutions for your digital needs
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+    <section className="py-32">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={fadeIn.initial}
+          whileInView={fadeIn.animate}
+          transition={fadeIn.transition}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold mb-6">Our Services</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Comprehensive valuation solutions tailored to meet your specific
+            needs
+          </p>
+        </motion.div>
+        <motion.div
+          initial={stagger}
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {ServiceData.map((service, index) => (
             <motion.div
-              key={service.title}
-              className="bg-white cursor-pointer p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-200 hover:border-gradient-to-r from-blue-500 to-purple-500"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={index}
+              initial={fadeIn.initial}
+              whileInView={fadeIn.animate}
+              transition={{ ...fadeIn.transition, delay: index * 0.1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
+              className="group bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white mb-4 transition-transform transform hover:rotate-12">
-                {service.icon}
+              <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
+                <service.icon className="w-8 h-8 text-gray-600 group-hover:text-gray-900 transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                {service.title}
-              </h3>
+              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,89 +1,60 @@
-import React from 'react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
 
-const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add form submission logic here
-  };
-
+const Contact = ({ fadeIn }: any) => {
   return (
-    <section id="contact" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Get in <span className="gradient-text">Touch</span>
-          </motion.h2>
-          <motion.p
-            className="text-gray-600 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Have a question or want to work together?
-          </motion.p>
-        </div>
-
+    <section className="py-32 bg-gray-900 text-white">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={fadeIn.initial}
+          whileInView={fadeIn.animate}
+          transition={fadeIn.transition}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          className="max-w-4xl mx-auto text-center"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center"
+          <h2 className="text-5xl font-bold mb-8">Get in Touch</h2>
+          <p className="text-xl text-gray-300 mb-12">
+            Have questions? We're here to help you make informed decisions about
+            your property valuation needs.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={fadeIn.initial}
+              whileInView={fadeIn.animate}
+              transition={{ ...fadeIn.transition, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gray-800 p-8 rounded-3xl"
             >
-              Send Message
-              <Send size={20} className="ml-2" />
-            </button>
-          </form>
+              <Phone className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <p className="text-gray-300">+1 (555) 123-4567</p>
+            </motion.div>
+            <motion.div
+              initial={fadeIn.initial}
+              whileInView={fadeIn.animate}
+              transition={{ ...fadeIn.transition, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-800 p-8 rounded-3xl"
+            >
+              <Mail className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <p className="text-gray-300">info@starlettevaluation.com</p>
+            </motion.div>
+            <motion.div
+              initial={fadeIn.initial}
+              whileInView={fadeIn.animate}
+              transition={{ ...fadeIn.transition, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-gray-800 p-8 rounded-3xl"
+            >
+              <MapPin className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
+              <p className="text-gray-300">
+                No. D, 1st Floor,
+                <br /> SVP Complex, <br /> VKK Memon Road, <br />
+                Siddhupudur,
+                <br />
+                Coimbatore 640044
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
