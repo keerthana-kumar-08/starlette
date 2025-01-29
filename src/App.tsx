@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen">
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUsPage />} />
