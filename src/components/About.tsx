@@ -53,7 +53,7 @@ const About = ({ fadeIn }: any) => {
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 bg-yellow-400 rounded-2xl p-8 shadow-xl">
+            <div className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-8 bg-yellow-400 rounded-2xl p-4 sm:p-8 shadow-xl">
               <p className="text-4xl font-bold">2+</p>
               <p className="text-gray-800">Years Experience</p>
             </div>

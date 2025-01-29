@@ -5,7 +5,7 @@ const Navbar = () => {
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
         <div className="text-2xl font-bold text-gray-800">Starlette</div>
-        <ul className="flex space-x-8">
+        <ul className="md:flex space-x-8 hidden">
           <li>
             <Link to="/" className="text-gray-800 hover:text-blue-600">
               Home

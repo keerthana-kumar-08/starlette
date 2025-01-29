@@ -18,7 +18,7 @@ const Hero = () => {
           className="max-w-3xl"
         >
           <motion.h1
-            className="text-7xl font-bold text-white mb-6 leading-tight"
+            className="lg:text-7xl md:text-6xl text-4xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
