@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 bg-white shadow-md z-50">
-      <nav className="container xl:max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
+    <header className="sticky top-0 bg-white shadow-md z-50 w-full">
+      <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
         <div className="text-2xl font-bold text-gray-800">Starlette</div>
         <ul className="flex space-x-8">
           <li>

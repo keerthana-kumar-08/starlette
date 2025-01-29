@@ -23,8 +23,11 @@ const Mission = ({ fadeIn, stagger }: any) => {
             <h3 className="text-3xl font-bold mb-6">Mission</h3>
             <p className="text-gray-300 leading-relaxed">
               At Starlette, our mission is to provide precise, honest, and
-              comprehensive property assessments that contribute to the
-              efficient completion of the real estate market with confidence.
+              comprehensive property valuations that help our clients navigate
+              the complexities of the real estate market with confidence. We aim
+              to offer tailored solutions that meet the unique needs of each
+              client, ensuring every valuation is relevant, accurate, and
+              actionable.
             </p>
           </motion.div>
           <motion.div
@@ -39,8 +42,9 @@ const Mission = ({ fadeIn, stagger }: any) => {
             <h3 className="text-3xl font-bold mb-6">Vision</h3>
             <p className="text-gray-300 leading-relaxed">
               To be recognized as the most trusted and innovative property
-              valuation service provider globally and becoming the preferred
-              partner for real estate valuation needs worldwide.
+              valuation company, offering unparalleled expertise and service,
+              and becoming the preferred partner for real estate valuation
+              services globally.
             </p>
           </motion.div>
         </motion.div>

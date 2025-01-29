@@ -19,13 +19,29 @@ const About = ({ fadeIn }: any) => {
                 accurate, and timely property assessments. Our commitment to
                 quality, transparency, and customer satisfaction has earned us
                 the trust of homeowners, real estate investors, developers,
-                financial institutions, and businesses alike.
+                financial institutions, and businesses alike. Founded in 2023,
+                Starlette has built a reputation for excellence, leveraging deep
+                industry knowledge and cutting-edge technology to deliverAt
+                Starlette, we specialize in delivering comprehensive, accurate,
+                and timely property assessments. Our commitment to quality,
+                transparency, and customer satisfaction has earned us the trust
+                of homeowners, real estate investors, developers, financial
+                institutions, and businesses alike.
               </p>
               <p className="text-lg">
                 Founded in 2023, Starlette has built a reputation for
                 excellence, leveraging deep industry knowledge and cutting-edge
                 technology to deliver valuations that are reliable and
-                insightful.
+                insightful. Our experienced team of certified appraisers and
+                valuation experts works diligently to ensure that each
+                assessment reflects the true market value of a property. We are
+                dedicated to providing our clients with the information they
+                need to make informed choices. valuations that are reliable and
+                insightful. Our experienced team of certified appraisers and
+                valuation experts works diligently to ensure that each
+                assessment reflects the true market value of a property. We are
+                dedicated to providing our clients with the information they
+                need to make informed choices.
               </p>
             </div>
           </div>

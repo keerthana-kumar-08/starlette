@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Contact = ({ fadeIn }: any) => {
+const ContactUs = ({ fadeIn }: any) => {
   return (
     <section className="py-32 bg-gray-900 text-white">
       <div className="container mx-auto px-6">
@@ -13,9 +13,13 @@ const Contact = ({ fadeIn }: any) => {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-5xl font-bold mb-8">Get in Touch</h2>
-          <p className="text-xl text-gray-300 mb-12">
-            Have questions? We're here to help you make informed decisions about
-            your property valuation needs.
+          <p className="text-xl text-gray-300 mb-14">
+            We're here to help! Whether you have questions, need assistance, or
+            want to learn more about our products and services, feel free to
+            reach out.
+          </p>
+          <p className="text-xl text-gray-300 mb-16">
+            We aim to respond to all emails within 24 hours.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
@@ -46,13 +50,15 @@ const Contact = ({ fadeIn }: any) => {
               className="bg-gray-800 p-8 rounded-3xl"
             >
               <MapPin className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
-              <p className="text-gray-300">
-                No. D, 1st Floor,
-                <br /> SVP Complex, <br /> VKK Memon Road, <br />
-                Siddhupudur,
-                <br />
-                Coimbatore 640044
-              </p>
+              <address>
+                <p className="text-gray-300">
+                  No. D, 1st Floor,
+                  <br /> SVP Complex, <br /> VKK Memon Road, <br />
+                  Siddhupudur,
+                  <br />
+                  Coimbatore 640044
+                </p>
+              </address>
             </motion.div>
           </div>
         </motion.div>
@@ -61,4 +67,4 @@ const Contact = ({ fadeIn }: any) => {
   );
 };
 
-export default Contact;
+export default ContactUs;

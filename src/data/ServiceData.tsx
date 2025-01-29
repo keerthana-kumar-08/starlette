@@ -10,38 +10,38 @@ import {
 export const ServiceData = [
   {
     icon: Building2,
-    title: 'Residential Property',
+    title: 'Residential Property Valuations',
     description:
-      'Detailed property appraisals for buying, selling, or refinancing homes.',
+      "Whether you're buying, selling, or refinancing a home, we offer detailed property appraisals to help you understand its market value.",
   },
   {
     icon: Building,
-    title: 'Commercial Property',
+    title: 'Commercial Property Valuations',
     description:
-      'Accurate valuations for offices, retail spaces, and commercial properties.',
+      'We provide accurate valuations for offices, retail spaces, and other commercial properties, assisting investors, landlords, and developers in making informed decisions.',
   },
   {
     icon: BarChart,
-    title: 'Industrial Property',
+    title: 'Industrial Property Valuations',
     description:
-      'Expert assessment of factories, warehouses, and industrial land.',
+      'Our experts assess industrial properties, including factories, warehouses, and land, providing reliable insights into their market worth.',
   },
   {
     icon: LineChart,
-    title: 'Market Analysis',
+    title: 'Market Analysis & Reporting',
     description:
-      'In-depth research on property trends, prices, and investment opportunities.',
+      'We offer in-depth market research and reporting to help clients understand current property trends, pricing, and investment opportunities.',
   },
   {
     icon: Scale,
-    title: 'Tax Assessment',
+    title: 'Property Tax Assessment & Dispute Resolution',
     description:
-      'Professional assistance in property tax evaluation and dispute resolution.',
+      'We assist property owners and investors in evaluating tax assessments and resolving disputes, ensuring fair and accurate valuation for tax purposes.',
   },
   {
     icon: FileText,
-    title: 'Pre-Purchase Valuation',
+    title: 'Pre-Purchase and Pre-Sale Valuations',
     description:
-      'Comprehensive property assessment before making investment decisions.',
+      "Whether you're buying or selling, our pre-purchase and pre-sale valuation services provide a clear understanding of a property's worth before making a commitment.",
   },
 ];

@@ -12,6 +12,17 @@ html {
 
 body {
   @apply bg-white text-gray-900;
+  font-family: 'Lexend', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  color: #f59e0b;
 }
 
 .gradient-text {
