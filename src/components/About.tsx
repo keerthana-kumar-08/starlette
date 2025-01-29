@@ -38,7 +38,7 @@ const About = ({ fadeIn }: any) => {
               />
             </div>
             <div className="absolute -bottom-8 -right-8 bg-yellow-400 rounded-2xl p-8 shadow-xl">
-              <p className="text-4xl font-bold">10+</p>
+              <p className="text-4xl font-bold">2+</p>
               <p className="text-gray-800">Years Experience</p>
             </div>
           </div>

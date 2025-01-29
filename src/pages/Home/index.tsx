@@ -27,7 +27,6 @@ const Home = () => {
       <About fadeIn={fadeIn} />
       <Mission fadeIn={fadeIn} stagger={stagger} />
       <Services fadeIn={fadeIn} stagger={stagger} />
-      <Mission fadeIn={fadeIn} stagger={stagger} />
       <Values fadeIn={fadeIn} stagger={stagger} />
       <ChooseUs fadeIn={fadeIn} stagger={stagger} />
       <Contact fadeIn={fadeIn} stagger={stagger} />
