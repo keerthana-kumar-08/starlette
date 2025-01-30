@@ -29,7 +29,7 @@ const Home = () => {
       <Services fadeIn={fadeIn} stagger={stagger} />
       <Values fadeIn={fadeIn} stagger={stagger} />
       <ChooseUs fadeIn={fadeIn} stagger={stagger} />
-      <Contact fadeIn={fadeIn} stagger={stagger} />
+      <Contact fadeIn={fadeIn} />
     </div>
   );
 };

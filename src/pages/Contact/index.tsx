@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import {
   Phone,
   Mail,
@@ -7,11 +7,25 @@ import {
   MessageSquare,
   Clock,
   ArrowRight,
+  Loader2,
 } from 'lucide-react';
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
   const contactInfo = [
     {
@@ -36,6 +50,58 @@ const Contact = () => {
       delay: 0.4,
     },
   ];
+
+  const validateForm = (): boolean => {
+    const errors: Partial<FormData> = {};
+
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+      alert('Message sent successfully!');
+    } catch (error) {
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (formErrors[name as keyof FormData]) {
+      setFormErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
 
   return (
     <section
@@ -139,7 +205,7 @@ const Contact = () => {
               >
                 Send us a Message
               </motion.h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -153,9 +219,19 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                        formErrors.name ? 'border-red-500' : 'border-gray-700'
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
                       placeholder="Your name"
                     />
+                    {formErrors.name && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {formErrors.name}
+                      </p>
+                    )}
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -169,9 +245,19 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                        formErrors.email ? 'border-red-500' : 'border-gray-700'
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
                       placeholder="Your email"
                     />
+                    {formErrors.email && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {formErrors.email}
+                      </p>
+                    )}
                   </motion.div>
                 </div>
                 <motion.div
@@ -185,18 +271,39 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500"
+                    className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                      formErrors.message ? 'border-red-500' : 'border-gray-700'
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
                     placeholder="Your message"
                   />
+                  {formErrors.message && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.message}
+                    </p>
+                  )}
                 </motion.div>
                 <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
                   whileHover={{ scale: 1.02, gap: '1rem' }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 group"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <span>Send Message</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </motion.button>
               </form>
             </div>
