@@ -31,7 +31,7 @@ const Contact = () => {
     {
       Icon: MapPin,
       title: 'Visit Us',
-      text: 'New York, NY',
+      text: 'No. D, 1st Floor, SVP Complex, VKK Menon road, Siddhapudur, Coimbatore 641044',
       subtext: 'Find us on Google Maps',
       delay: 0.4,
     },
@@ -98,7 +98,6 @@ const Contact = () => {
               >
                 <div className="relative mb-6">
                   <motion.div
-                    whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                     className="bg-yellow-400/10 w-16 h-16 rounded-2xl flex items-center justify-center"
                   >

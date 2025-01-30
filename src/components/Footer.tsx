@@ -82,21 +82,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-4 text-gray-400">
-              <div>
-                <h5 className="text-md font-medium text-white">Trichy</h5>
+              <address>
                 <p>
-                  No.21, Ground Floor, Sri Sahaas Nivas, B Block, Senbagam
-                  Apartment, Opposite National College, Trichy - 1
+                  No. D, 1st Floor, SVP Complex, VKK Menon road, Siddhapudur,
+                  Coimbatore 641044
                 </p>
-              </div>
-              <div>
-                <h5 className="text-md font-medium text-white">Chennai</h5>
-                <p>
-                  Workenstein Collaborativespaces Pvt Ltd, Level 7, IIFL Towers,
-                  143, MGR Main Rd, Kandancavadi, Perungudi, Chennai, Tamil Nadu
-                  600096.
-                </p>
-              </div>
+              </address>
               <p>info@Starletteetiq.com</p>
               <p className="mt-2">
                 <a
