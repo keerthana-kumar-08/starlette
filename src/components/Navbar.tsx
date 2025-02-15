@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import navLinks from '../data/navLinks';
+import logo from '../images/logo1.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +26,8 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
-        <Link to="/" className="md:text-2xl text-lg font-bold text-gray-800">
-          Starlette
+        <Link to="/" className="h-10 w-10">
+          <img src={logo} alt="logo" />
         </Link>
 
         {/* Desktop Menu */}
@@ -44,7 +45,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="md:hidden p-2 text-gray-800 focus:outline-none transition-colors duration-200"
           onClick={() => setIsOpen(!isOpen)}
@@ -54,7 +54,6 @@ const Navbar = () => {
         </motion.button>
       </nav>
 
-      {/* Mobile Menu with Animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

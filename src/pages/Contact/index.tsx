@@ -1,14 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Clock,
-  ArrowRight,
-  Loader2,
-} from 'lucide-react';
+import { MessageSquare, Clock, ArrowRight, Loader2 } from 'lucide-react';
+import { contactInfo } from '../../data/contactInfo';
 
 interface FormData {
   name: string;
@@ -26,30 +19,6 @@ const Contact = () => {
     message: '',
   });
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
-
-  const contactInfo = [
-    {
-      Icon: Phone,
-      title: 'Call Us',
-      text: '+1 (555) 123-4567',
-      subtext: 'Mon-Fri from 8am to 5pm',
-      delay: 0.2,
-    },
-    {
-      Icon: Mail,
-      title: 'Email Us',
-      text: 'info@starlettevaluation.com',
-      subtext: 'We reply within 24 hours',
-      delay: 0.3,
-    },
-    {
-      Icon: MapPin,
-      title: 'Visit Us',
-      text: 'No. D, 1st Floor, SVP Complex, VKK Menon road, Siddhapudur, Coimbatore 641044',
-      subtext: 'Find us on Google Maps',
-      delay: 0.4,
-    },
-  ];
 
   const validateForm = (): boolean => {
     const errors: Partial<FormData> = {};
@@ -104,10 +73,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      className="py-32 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
-      ref={ref}
-    >
+    <section className="py-32 bg-white text-blue-700" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -1,10 +1,6 @@
 import Hero from '../../components/Hero';
-import About from '../../components/About';
-import Mission from '../../components/Mission';
 import Services from '../../components/Services';
-import Values from '../../components/Values';
 import ChooseUs from '../../components/ChooseUs';
-import Contact from '../../components/Contact';
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -24,12 +20,8 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <About fadeIn={fadeIn} />
-      <Mission fadeIn={fadeIn} stagger={stagger} />
       <Services fadeIn={fadeIn} stagger={stagger} />
-      <Values fadeIn={fadeIn} stagger={stagger} />
       <ChooseUs fadeIn={fadeIn} stagger={stagger} />
-      <Contact fadeIn={fadeIn} />
     </div>
   );
 };
