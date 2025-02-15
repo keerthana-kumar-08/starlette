@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import navLinks from '../data/navLinks';
-import logo from '../images/logo1.svg';
+import logo from '../images/logo.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
-        <Link to="/" className="h-10 w-10">
+        <Link to="/" className="h-8 w-8">
           <img src={logo} alt="logo" />
         </Link>
 
