@@ -3,7 +3,7 @@ import { Compass, Target } from 'lucide-react';
 
 const Mission = ({ fadeIn, stagger }: any) => {
   return (
-    <section className="py-32 bg-gray-900 text-white">
+    <section className="py-32 text-white">
       <div className="container mx-auto sm:px-6 px-3">
         <motion.div
           initial={stagger}
