@@ -73,47 +73,36 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-32 bg-white text-blue-700" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section
+      className='py-20 bg-white text-blue-800'
+      ref={ref}>
+      <div className='container mx-auto px-6'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="max-w-6xl mx-auto"
-        >
+          className='max-w-6xl mx-auto'>
           {/* Header Section */}
-          <div className="text-center mb-20">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
-              }
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-block mb-4"
-            >
-              <MessageSquare className="w-16 h-16 text-yellow-400" />
-            </motion.div>
+          <div className='text-center mb-20'>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            >
+              className='text-6xl font-bold mb-6 bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent'>
               Let's Start a Conversation
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl text-gray-300 max-w-2xl mx-auto"
-            >
+              className='text-xl text-gray-600 max-w-2xl mx-auto'>
               Have questions about our valuation services? We're here to help
               you make informed decisions about your property investments.
             </motion.p>
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-20'>
             {contactInfo.map((item, index) => (
               <motion.div
                 key={index}
@@ -126,26 +115,26 @@ const Contact = () => {
                   scale: 1.05,
                   backgroundColor: 'rgba(255,255,255,0.1)',
                 }}
-                className="group bg-gray-800/50 backdrop-blur-lg p-8 rounded-3xl border border-gray-700/50 cursor-pointer transition-all duration-300"
-              >
-                <div className="relative mb-6">
+                className='group bg-white/50 shadow-lg p-8 rounded-3xl border border-gray-200/50 cursor-pointer transition-all duration-300'>
+                <div className='relative mb-6'>
                   <motion.div
                     transition={{ duration: 0.6 }}
-                    className="bg-yellow-400/10 w-16 h-16 rounded-2xl flex items-center justify-center"
-                  >
-                    <item.Icon className="w-8 h-8 text-yellow-400" />
+                    className='bg-yellow-200/10 w-16 h-16 rounded-2xl flex items-center justify-center'>
+                    <item.Icon className='w-8 h-8 text-yellow-500' />
                   </motion.div>
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: item.delay + 0.3 }}
-                    className="absolute -top-2 -right-2 bg-yellow-400 w-6 h-6 rounded-full"
+                    className='absolute -top-2 -right-2 bg-yellow-500 w-6 h-6 rounded-full'
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-300 mb-2">{item.text}</p>
-                <p className="text-sm text-gray-400 flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
+                <h3 className='text-xl font-semibold mb-2 text-blue-800'>
+                  {item.title}
+                </h3>
+                <p className='text-blue-700 mb-2'>{item.text}</p>
+                <p className='text-sm text-gray-500 flex items-center gap-2'>
+                  <Clock className='w-4 h-4' />
                   {item.subtext}
                 </p>
               </motion.div>
@@ -157,44 +146,43 @@ const Contact = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-gray-800/30 backdrop-blur-lg p-8 lg:p-12 rounded-3xl border border-gray-700/50"
-          >
+            className='grid grid-cols-1 lg:grid-cols-5 gap-8 bg-white/90 shadow-lg p-8 lg:p-12 rounded-3xl border border-gray-200/50'>
             {/* Form Section */}
-            <div className="lg:col-span-3">
+            <div className='lg:col-span-3'>
               <motion.h3
                 initial={{ opacity: 0, x: -20 }}
                 animate={
                   isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
                 }
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-2xl font-bold mb-6"
-              >
+                className='text-2xl font-bold mb-6 text-blue-800'>
                 Send us a Message
               </motion.h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form
+                onSubmit={handleSubmit}
+                className='space-y-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={
                       isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
                     }
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    transition={{ duration: 0.6, delay: 0.7 }}>
+                    <label className='block text-sm font-medium text-blue-700 mb-2'>
                       Name
                     </label>
                     <input
-                      type="text"
-                      name="name"
+                      type='text'
+                      name='name'
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-gray-900/50 border ${
-                        formErrors.name ? 'border-red-500' : 'border-gray-700'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
-                      placeholder="Your name"
+                      className={`w-full px-4 py-3 bg-white border ${
+                        formErrors.name ? 'border-red-500' : 'border-gray-300'
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
+                      placeholder='Your name'
                     />
                     {formErrors.name && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className='mt-1 text-sm text-red-500'>
                         {formErrors.name}
                       </p>
                     )}
@@ -204,23 +192,22 @@ const Contact = () => {
                     animate={
                       isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
                     }
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    transition={{ duration: 0.6, delay: 0.8 }}>
+                    <label className='block text-sm font-medium text-blue-700 mb-2'>
                       Email
                     </label>
                     <input
-                      type="email"
-                      name="email"
+                      type='email'
+                      name='email'
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-gray-900/50 border ${
-                        formErrors.email ? 'border-red-500' : 'border-gray-700'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
-                      placeholder="Your email"
+                      className={`w-full px-4 py-3 bg-white border ${
+                        formErrors.email ? 'border-red-500' : 'border-gray-300'
+                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
+                      placeholder='Your email'
                     />
                     {formErrors.email && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className='mt-1 text-sm text-red-500'>
                         {formErrors.email}
                       </p>
                     )}
@@ -231,43 +218,41 @@ const Contact = () => {
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                   }
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                >
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  transition={{ duration: 0.6, delay: 0.9 }}>
+                  <label className='block text-sm font-medium text-blue-700 mb-2'>
                     Message
                   </label>
                   <textarea
-                    name="message"
+                    name='message'
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className={`w-full px-4 py-3 bg-gray-900/50 border ${
-                      formErrors.message ? 'border-red-500' : 'border-gray-700'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white placeholder-gray-500 transition-all duration-200`}
-                    placeholder="Your message"
+                    className={`w-full px-4 py-3 bg-white border ${
+                      formErrors.message ? 'border-red-500' : 'border-gray-300'
+                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
+                    placeholder='Your message'
                   />
                   {formErrors.message && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className='mt-1 text-sm text-red-500'>
                       {formErrors.message}
                     </p>
                   )}
                 </motion.div>
                 <motion.button
-                  type="submit"
+                  type='submit'
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02, gap: '1rem' }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed"
-                >
+                  className='w-full bg-blue-600 text-white py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed'>
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className='w-5 h-5 animate-spin' />
                       <span>Sending...</span>
                     </>
                   ) : (
                     <>
                       <span>Send Message</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
                     </>
                   )}
                 </motion.button>
@@ -275,23 +260,21 @@ const Contact = () => {
             </div>
 
             {/* Information Section */}
-            <div className="lg:col-span-2 flex flex-col justify-between">
+            <div className='lg:col-span-2 flex flex-col justify-between'>
               <div>
                 <motion.h3
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.6, delay: 1 }}
-                  className="text-2xl font-bold mb-6"
-                >
+                  className='text-2xl font-bold mb-6 text-blue-800'>
                   Additional Information
                 </motion.h3>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.6, delay: 1.1 }}
-                  className="prose prose-invert"
-                >
-                  <p className="text-gray-300">
+                  className='prose prose-invert'>
+                  <p className='text-blue-700'>
                     Our team of expert valuators is ready to assist you with any
                     inquiries about property valuation, market analysis, or
                     consultation services.
@@ -302,19 +285,20 @@ const Contact = () => {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
-                className="mt-8 p-6 bg-yellow-400/10 rounded-2xl border border-yellow-400/20"
-              >
-                <h4 className="text-lg font-semibold mb-2">Business Hours</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li className="flex justify-between">
+                className='mt-8 p-6 bg-yellow-200/10 rounded-2xl border border-yellow-200/20'>
+                <h4 className='text-lg font-semibold mb-2 text-blue-800'>
+                  Business Hours
+                </h4>
+                <ul className='space-y-2 text-blue-700'>
+                  <li className='flex justify-between'>
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 6:00 PM</span>
                   </li>
-                  <li className="flex justify-between">
+                  <li className='flex justify-between'>
                     <span>Saturday</span>
                     <span>10:00 AM - 4:00 PM</span>
                   </li>
-                  <li className="flex justify-between">
+                  <li className='flex justify-between'>
                     <span>Sunday</span>
                     <span>Closed</span>
                   </li>
