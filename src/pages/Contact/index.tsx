@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { MessageSquare, Clock, ArrowRight, Loader2 } from 'lucide-react';
+import { Clock, ArrowRight, Loader2 } from 'lucide-react';
 import { contactInfo } from '../../data/contactInfo';
 
 interface FormData {
