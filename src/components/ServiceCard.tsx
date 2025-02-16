@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ServiceData } from '../data/ServiceData';
 
-const Services = ({ fadeIn, stagger } : any) => {
+const ServiceCard = ({ fadeIn, stagger } : any) => {
   return (
     <section className="py-32">
       <div className="container mx-auto px-6">
@@ -46,4 +46,4 @@ const Services = ({ fadeIn, stagger } : any) => {
   );
 };
 
-export default Services;
+export default ServiceCard;
