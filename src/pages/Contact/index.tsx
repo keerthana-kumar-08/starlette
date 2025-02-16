@@ -119,14 +119,14 @@ const Contact = () => {
                 <div className='relative mb-6'>
                   <motion.div
                     transition={{ duration: 0.6 }}
-                    className='bg-yellow-200/10 w-16 h-16 rounded-2xl flex items-center justify-center'>
-                    <item.Icon className='w-8 h-8 text-yellow-500' />
+                    className='bg-blue-200/10 w-16 h-16 rounded-2xl flex items-center justify-center'>
+                    <item.Icon className='w-8 h-8 text-blue-500' />
                   </motion.div>
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: item.delay + 0.3 }}
-                    className='absolute -top-2 -right-2 bg-yellow-500 w-6 h-6 rounded-full'
+                    className='absolute -top-2 -right-2 bg-blue-500 w-6 h-6 rounded-full'
                   />
                 </div>
                 <h3 className='text-xl font-semibold mb-2 text-blue-800'>
@@ -243,7 +243,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02, gap: '1rem' }}
                   whileTap={{ scale: 0.98 }}
-                  className='w-full bg-blue-600 text-white py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed'>
+                  className='w-full bg-blue-600 text-white py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-blue-500 hover:to-blue-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed'>
                   {isSubmitting ? (
                     <>
                       <Loader2 className='w-5 h-5 animate-spin' />
@@ -285,7 +285,7 @@ const Contact = () => {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
-                className='mt-8 p-6 bg-yellow-200/10 rounded-2xl border border-yellow-200/20'>
+                className='mt-8 p-6 bg-blue-200/10 rounded-2xl border border-blue-200/20'>
                 <h4 className='text-lg font-semibold mb-2 text-blue-800'>
                   Business Hours
                 </h4>

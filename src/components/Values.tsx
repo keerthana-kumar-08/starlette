@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Values = ({ fadeIn, stagger }: any) => {
   return (
-    <section className="py-32 bg-gray-50">
+    <section className="py-32 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={fadeIn.initial}
@@ -30,7 +30,7 @@ const Values = ({ fadeIn, stagger }: any) => {
               whileInView={fadeIn.animate}
               transition={{ ...fadeIn.transition, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-3xl text-center hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-50 hover:bg-gray-100 p-8 rounded-3xl text-center hover:shadow-xl transition-shadow duration-300"
             >
               <div className="bg-yellow-400/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <value.icon className="w-10 h-10 text-yellow-400" />

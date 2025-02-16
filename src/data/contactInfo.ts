@@ -8,7 +8,7 @@ export const contactInfo = [
   {
     Icon: Phone,
     title: 'Call Us',
-    text: '+1 (555) 123-4567',
+    text: '+91 948 883 6594',
     subtext: 'Mon-Fri from 8am to 5pm',
     delay: 0.2,
   },

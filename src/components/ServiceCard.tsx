@@ -31,7 +31,7 @@ const ServiceCard = ({ fadeIn, stagger } : any) => {
               whileInView={fadeIn.animate}
               transition={{ ...fadeIn.transition, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300"
+              className="group bg-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
                 <service.icon className="w-8 h-8 text-gray-600 group-hover:text-gray-900 transition-colors duration-300" />
