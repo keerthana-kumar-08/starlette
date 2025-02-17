@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import navLinks from '../data/navLinks';
 import logo from '../images/logo.svg';
+import { WhatsApp } from 'lucide-react';  // Import the WhatsApp icon
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,13 @@ const Navbar = () => {
   const handleOnClick = () => {
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openWhatsApp = () => {
+    const phoneNumber = "9843862417";
+    const message = "Hello! I would like more information.";
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -83,6 +91,14 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* WhatsApp Icon Button */}
+      <button
+        className="fixed bottom-6 right-6 bg-blue-800 p-3 rounded-full shadow-xl hover:scale-110 hover:rotate-12 transition-all duration-300 ease-in-out"
+        onClick={openWhatsApp}
+      >
+        <WhatsApp size={32} className="text-white" />
+      </button>
     </header>
   );
 };
