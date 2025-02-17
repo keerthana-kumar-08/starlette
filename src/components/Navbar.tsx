@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "9843862417";
+    const phoneNumber = "8505397737";
     const message = "Hello! I would like more information.";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
