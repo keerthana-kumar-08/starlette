@@ -42,24 +42,43 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!validateForm()) return;
+  if (!validateForm()) return;
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+  try {
+    // Send form data to backend API
+    const response = await fetch('https://starlette-be.onrender.com/api/send-mail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }),
+    });
 
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
-      alert('Message sent successfully!');
-    } catch (error) {
-      alert('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+    if (!response.ok) {
+      throw new Error('Failed to send message');
     }
-  };
+
+    // Wait a little for better UX
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    // Reset form after successful submission
+    setFormData({ name: '', email: '', message: '' });
+    alert('Message sent successfully!');
+  } catch (error) {
+    alert('Failed to send message. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
