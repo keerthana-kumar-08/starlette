@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import navLinks from '../data/navLinks';
 import logo from '../images/logo.svg';
+import whatsapp from '../images/whatsapp.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,7 +97,7 @@ const Navbar = () => {
         className="fixed bottom-6 right-6 bg-blue-800 p-3 rounded-full shadow-xl hover:scale-110 hover:rotate-12 transition-all duration-300 ease-in-out"
         onClick={openWhatsApp}
       >
-        <MessageCircle size={32} className="text-white" />
+        <img src={whatsapp} alt="WhatsApp" className="w-10 h-10" />
       </button>
     </header>
   );
