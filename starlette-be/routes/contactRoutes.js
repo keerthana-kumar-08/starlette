@@ -4,7 +4,7 @@ const router = express.Router();
 require("dotenv").config();
 
 // Route to Send Email (POST)
-router.post("/api/send-mail", async (req, res) => {
+router.post("/", async (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
 
   // Validate required fields
