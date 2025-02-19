@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
 
   // Validate required fields
-  if (!firstName || !lastName || !email || !phone || !subject || !message) {
+  if (!firstName || !lastName || !email || !phone || !message) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
