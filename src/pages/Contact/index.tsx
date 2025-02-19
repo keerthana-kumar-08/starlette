@@ -1,40 +1,54 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Clock, ArrowRight, Loader2 } from 'lucide-react';
-import { contactInfo } from '../../data/contactInfo';
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { ArrowRight, Loader2} from "lucide-react";
+import { contactData } from "../../data/contactData";
 
 interface FormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  phone: string;
   message: string;
 }
 
 const Contact = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
   const validateForm = (): boolean => {
     const errors: Partial<FormData> = {};
 
-    if (!formData.name.trim()) {
-      errors.name = 'Name is required';
+    if (!formData.firstName.trim()) {
+      errors.firstName = "First name is required";
+    }
+
+    if (!formData.lastName.trim()) {
+      errors.lastName = "Last name is required";
     }
 
     if (!formData.email.trim()) {
-      errors.email = 'Email is required';
+      errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'Please enter a valid email address';
+      errors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone number is required";
+    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
+      errors.phone = "Please enter a valid phone number";
     }
 
     if (!formData.message.trim()) {
-      errors.message = 'Message is required';
+      errors.message = "Message is required";
     }
 
     setFormErrors(errors);
@@ -42,288 +56,253 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!validateForm()) return;
+    setIsSubmitting(true);
 
-  if (!validateForm()) return;
-
-  setIsSubmitting(true);
-
-  try {
-    // Send form data to backend API
-    const response = await fetch('https://starlette-be.onrender.com/api/send-mail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to send message');
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+      alert("Message sent successfully!");
+    } catch (error) {
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Wait a little for better UX
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // Reset form after successful submission
-    setFormData({ name: '', email: '', message: '' });
-    alert('Message sent successfully!');
-  } catch (error) {
-    alert('Failed to send message. Please try again.');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (formErrors[name as keyof FormData]) {
-      setFormErrors((prev) => ({ ...prev, [name]: '' }));
+      setFormErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   return (
-    <section
-      className='py-20 bg-white text-blue-800'
-      ref={ref}>
-      <div className='container mx-auto px-6'>
+    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className='max-w-6xl mx-auto'>
+          className="max-w-7xl mx-auto"
+        >
           {/* Header Section */}
-          <div className='text-center mb-20'>
+          <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className='text-6xl font-bold mb-6 bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent'>
-              Let's Start a Conversation
+              className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
+            >
+              Get in Touch
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className='text-xl text-gray-600 max-w-2xl mx-auto'>
-              Have questions about our valuation services? We're here to help
-              you make informed decisions about your property investments.
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
+              We're here to help and answer any questions you might have
             </motion.p>
           </div>
 
-          {/* Contact Cards */}
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-20'>
-            {contactInfo.map((item, index) => (
+          {/* Contact Information Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {contactData.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                 }
-                transition={{ duration: 0.6, delay: item.delay }}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                }}
-                className='group bg-white/50 shadow-lg p-8 rounded-3xl border border-gray-200/50 cursor-pointer transition-all duration-300'>
-                <div className='relative mb-6'>
-                  <motion.div
-                    transition={{ duration: 0.6 }}
-                    className='bg-blue-200/10 w-16 h-16 rounded-2xl flex items-center justify-center'>
-                    <item.Icon className='w-8 h-8 text-blue-500' />
-                  </motion.div>
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: item.delay + 0.3 }}
-                    className='absolute -top-2 -right-2 bg-blue-500 w-6 h-6 rounded-full'
-                  />
+                transition={{ duration: 0.5, delay: 0.2 * index }}
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <item.icon className="w-6 h-6 text-gray-700" />
+                  </div>
                 </div>
-                <h3 className='text-xl font-semibold mb-2 text-blue-800'>
+
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {item.title}
                 </h3>
-                <p className='text-blue-700 mb-2'>{item.text}</p>
-                <p className='text-sm text-gray-500 flex items-center gap-2'>
-                  <Clock className='w-4 h-4' />
-                  {item.subtext}
-                </p>
+                <p className="text-gray-600 mb-4">{item.content}</p>
+                <button
+                  onClick={item.action}
+                  className="text-gray-700 hover:text-gray-900 font-medium flex items-center gap-2 group"
+                >
+                  {item.actionText}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
               </motion.div>
             ))}
           </div>
 
+          {/* Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-16 rounded-xl overflow-hidden shadow-sm"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.245596455768!2d76.9783619!3d11.020191100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859b84d652495%3A0x83a0230616379639!2sSTARLETTE%20PROPERTY%20VALUATIONS!5e0!3m2!1sen!2sin!4v1739971397714!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </motion.div>
+
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className='grid grid-cols-1 lg:grid-cols-5 gap-8 bg-white/90 shadow-lg p-8 lg:p-12 rounded-3xl border border-gray-200/50'>
-            {/* Form Section */}
-            <div className='lg:col-span-3'>
-              <motion.h3
-                initial={{ opacity: 0, x: -20 }}
-                animate={
-                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
-                }
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className='text-2xl font-bold mb-6 text-blue-800'>
-                Send us a Message
-              </motion.h3>
-              <form
-                onSubmit={handleSubmit}
-                className='space-y-6'>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={
-                      isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.7 }}>
-                    <label className='block text-sm font-medium text-blue-700 mb-2'>
-                      Name
-                    </label>
-                    <input
-                      type='text'
-                      name='name'
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-white border ${
-                        formErrors.name ? 'border-red-500' : 'border-gray-300'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
-                      placeholder='Your name'
-                    />
-                    {formErrors.name && (
-                      <p className='mt-1 text-sm text-red-500'>
-                        {formErrors.name}
-                      </p>
-                    )}
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={
-                      isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
-                    }
-                    transition={{ duration: 0.6, delay: 0.8 }}>
-                    <label className='block text-sm font-medium text-blue-700 mb-2'>
-                      Email
-                    </label>
-                    <input
-                      type='email'
-                      name='email'
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-white border ${
-                        formErrors.email ? 'border-red-500' : 'border-gray-300'
-                      } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
-                      placeholder='Your email'
-                    />
-                    {formErrors.email && (
-                      <p className='mt-1 text-sm text-red-500'>
-                        {formErrors.email}
-                      </p>
-                    )}
-                  </motion.div>
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.6, delay: 0.9 }}>
-                  <label className='block text-sm font-medium text-blue-700 mb-2'>
-                    Message
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="bg-white rounded-xl shadow-sm p-8"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              Send us a Message
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    First Name
                   </label>
-                  <textarea
-                    name='message'
-                    value={formData.message}
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
                     onChange={handleChange}
-                    rows={4}
-                    className={`w-full px-4 py-3 bg-white border ${
-                      formErrors.message ? 'border-red-500' : 'border-gray-300'
-                    } rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-700 text-blue-800 placeholder-gray-500 transition-all duration-200`}
-                    placeholder='Your message'
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      formErrors.firstName
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    placeholder="John"
                   />
-                  {formErrors.message && (
-                    <p className='mt-1 text-sm text-red-500'>
-                      {formErrors.message}
+                  {formErrors.firstName && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.firstName}
                     </p>
                   )}
-                </motion.div>
-                <motion.button
-                  type='submit'
-                  disabled={isSubmitting}
-                  whileHover={{ scale: 1.02, gap: '1rem' }}
-                  whileTap={{ scale: 0.98 }}
-                  className='w-full bg-blue-600 text-white py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-blue-500 hover:to-blue-600 transition-all duration-300 group disabled:opacity-70 disabled:cursor-not-allowed'>
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className='w-5 h-5 animate-spin' />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Send Message</span>
-                      <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
-                    </>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      formErrors.lastName ? "border-red-500" : "border-gray-300"
+                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    placeholder="Doe"
+                  />
+                  {formErrors.lastName && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.lastName}
+                    </p>
                   )}
-                </motion.button>
-              </form>
-            </div>
-
-            {/* Information Section */}
-            <div className='lg:col-span-2 flex flex-col justify-between'>
-              <div>
-                <motion.h3
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.6, delay: 1 }}
-                  className='text-2xl font-bold mb-6 text-blue-800'>
-                  Additional Information
-                </motion.h3>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                  className='prose prose-invert'>
-                  <p className='text-blue-700'>
-                    Our team of expert valuators is ready to assist you with any
-                    inquiries about property valuation, market analysis, or
-                    consultation services.
-                  </p>
-                </motion.div>
+                </div>
               </div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className='mt-8 p-6 bg-blue-200/10 rounded-2xl border border-blue-200/20'>
-                <h4 className='text-lg font-semibold mb-2 text-blue-800'>
-                  Business Hours
-                </h4>
-                <ul className='space-y-2 text-blue-700'>
-                  <li className='flex justify-between'>
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </li>
-                  <li className='flex justify-between'>
-                    <span>Saturday</span>
-                    <span>10:00 AM - 4:00 PM</span>
-                  </li>
-                  <li className='flex justify-between'>
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      formErrors.email ? "border-red-500" : "border-gray-300"
+                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    placeholder="john.doe@example.com"
+                  />
+                  {formErrors.email && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.email}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      formErrors.phone ? "border-red-500" : "border-gray-300"
+                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    placeholder="+1 (234) 567-8900"
+                  />
+                  {formErrors.phone && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    formErrors.message ? "border-red-500" : "border-gray-300"
+                  } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                  placeholder="How can we help you?"
+                />
+                {formErrors.message && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {formErrors.message}
+                  </p>
+                )}
+              </div>
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                className="w-full bg-gray-900 text-white py-4 px-8 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </motion.button>
+            </form>
           </motion.div>
         </motion.div>
       </div>

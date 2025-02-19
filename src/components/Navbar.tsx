@@ -1,42 +1,51 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import navLinks from '../data/navLinks';
-import logo from '../images/logo.svg';
-import whatsapp from '../images/whatsapp.svg';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import navLinks from "../data/navLinks";
+import logo from "../images/logo.png";
+import whatsapp from "../images/whatsapp.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const mobileMenuVariants = {
-    hidden: { x: '-100%', opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { type: 'tween', duration: 0.3 } },
+    hidden: { x: "-100%", opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { type: "tween", duration: 0.3 } },
     exit: {
-      x: '-100%',
+      x: "-100%",
       opacity: 0,
-      transition: { type: 'tween', duration: 0.3 },
+      transition: { type: "tween", duration: 0.3 },
     },
   };
 
   const handleOnClick = () => {
     setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const openWhatsApp = () => {
     const phoneNumber = "8508397737";
     const message = "Hello! I would like more information.";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
     window.open(url, "_blank");
   };
 
   return (
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
-        <Link to="/" className="h-8 w-8">
-          <img src={logo} alt="logo" />
-        </Link>
+        <div className="flex items-center h-8 gap-2">
+          <Link to="/" className="h-8 w-8">
+            <img
+              src={logo}
+              alt="logo"
+              className="h-full w-full object-contain"
+            />
+          </Link>
+          <span className="text-lg font-semibold text-gray-800">Starlette</span>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-4">
