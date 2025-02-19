@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
+import { ArrowLeft, Check } from "lucide-react";
 import { ServiceData } from "../../data/ServiceData";
 
 const ServiceDetail = () => {
@@ -7,34 +9,106 @@ const ServiceDetail = () => {
     (s) => s.title === decodeURIComponent(title || "")
   );
 
-  if (!service)
+  if (!service) {
     return (
-      <div className="text-center py-32 text-gray-700 text-xl">
-        Service not found
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Service not found</h2>
+          <Link
+            to="/services"
+            className="text-yellow-600 hover:text-yellow-700"
+          >
+            Return to Services
+          </Link>
+        </div>
       </div>
     );
+  }
 
   return (
-    <section className="py-32">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative h-[60vh] overflow-hidden">
+        <div className="absolute inset-0">
           <img
             src={service.image}
             alt={service.title}
-            className="rounded-3xl w-full object-cover"
+            className="w-full h-full object-cover"
           />
-          <div>
-            <h1 className="text-5xl font-bold mb-6">{service.title}</h1>
-            <p className="text-gray-600 text-lg mb-6">{service.description}</p>
-            <Link to="/contact">
-              <button className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition-colors">
-                Contact Us
-              </button>
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="/services"
+              className="inline-flex items-center text-white mb-8 hover:text-yellow-400 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Back to Services
             </Link>
-          </div>
+            <h1 className="text-5xl font-bold text-white mb-6">
+              {service.title}
+            </h1>
+            <p className="text-xl text-gray-200 max-w-2xl">
+              {service.description}
+            </p>
+          </motion.div>
         </div>
       </div>
-    </section>
+
+      {/* Content Section */}
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Main Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="text-3xl font-bold mb-8 text-gray-900">
+              About This Service
+            </h2>
+            <div className="space-y-6">
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Features */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white p-8 rounded-3xl shadow-sm"
+          >
+            <h3 className="text-2xl font-bold mb-8 text-gray-900">
+              Key Features
+            </h3>
+            <ul className="space-y-4">
+              {service.features.map((feature, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                  className="flex items-start"
+                >
+                  <span className="flex-shrink-0 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </span>
+                  <span className="text-gray-600">{feature}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </div>
+    </div>
   );
 };
 
