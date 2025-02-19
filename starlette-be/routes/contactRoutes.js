@@ -5,7 +5,7 @@ require("dotenv").config();
 
 // Route to Send Email (POST)
 router.post("/api/send-mail", async (req, res) => {
-  const { firstName, lastName, email, phone, subject, message } = req.body;
+  const { firstName, lastName, email, phone, message } = req.body;
 
   // Validate required fields
   if (!firstName || !lastName || !email || !phone || !subject || !message) {
