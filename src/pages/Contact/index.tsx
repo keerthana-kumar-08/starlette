@@ -55,27 +55,45 @@ const Contact = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-    setIsSubmitting(true);
+ const handleSubmit = async (e: React.FormEvent) => {
+   e.preventDefault();
+   if (!validateForm()) return;
+   setIsSubmitting(true);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-      alert("Message sent successfully!");
-    } catch (error) {
-      alert("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+   try {
+     const response = await fetch(
+       "https://starlette-be.onrender.com/api/send-mail",
+       {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(formData),
+       }
+     );
+
+     if (!response.ok) {
+       throw new Error("Failed to send message.");
+     }
+
+     // Reset form after successful submission
+     setFormData({
+       firstName: "",
+       lastName: "",
+       email: "",
+       phone: "",
+       message: "",
+     });
+
+     alert("Message sent successfully!");
+   } catch (error) {
+     console.error("Error sending message:", error);
+     alert("Failed to send message. Please try again.");
+   } finally {
+     setIsSubmitting(false);
+   }
+ };
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
