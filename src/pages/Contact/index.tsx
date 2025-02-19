@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, Loader2} from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { contactData } from "../../data/contactData";
 
 interface FormData {
@@ -88,7 +88,10 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-100 to-white">
+    <section
+      ref={ref}
+      className="py-20 bg-gradient-to-b from-gray-100 to-white"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -104,7 +107,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
             >
-              Get in Touch
+              <h2 className="md:text-5xl text-3xl">Get in Touch</h2>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -173,9 +176,9 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="bg-white rounded-xl shadow-sm p-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl font-bold mb-8">
               Send us a Message
-            </h3>
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

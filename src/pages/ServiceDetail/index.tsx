@@ -45,15 +45,15 @@ const ServiceDetail = () => {
           >
             <Link
               to="/services"
-              className="inline-flex items-center text-white mb-8 hover:text-yellow-400 transition-colors"
+              className="inline-flex items-center text-white mb-8 transition-colors"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Services
+              <ArrowLeft className="w-5 h-5 mr-2 " />
+              <span>Back to Services</span>
             </Link>
             <h1 className="text-5xl font-bold text-white mb-6">
               {service.title}
             </h1>
-            <p className="text-xl text-gray-200 max-w-2xl">
+            <p className="md:text-xl text-gray-200 max-w-2xl">
               {service.description}
             </p>
           </motion.div>

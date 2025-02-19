@@ -40,7 +40,7 @@ const Navbar = () => {
           <Link to="/" className="h-10 w-10 flex items-center">
             <img src={logo} alt="logo" className="h-8 w-8 object-contain" />
           </Link>
-          <span className="text-2xl ml-[-6px] mt-[6px] font-extrabold text-red-800">
+          <span className="text-2xl ml-[-6px] mt-[6px] font-extrabold text-blue-800">
             Starlette
           </span>
         </div>

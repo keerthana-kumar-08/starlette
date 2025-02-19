@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-32 h-screen flex flex-col justify-center items-center text-center md:items-start md:text-left md:px-10">
+      <div className="relative z-10 container mx-auto px-6 md:py-32 py-16 h-screen flex flex-col justify-center items-center text-center md:items-start md:text-left md:px-10">
         <motion.h1
           className="lg:text-7xl md:text-6xl text-4xl font-bold text-blue-700 mb-6 leading-tight"
           initial={{ opacity: 0, scale: 0.8 }}
