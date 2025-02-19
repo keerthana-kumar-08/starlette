@@ -1,16 +1,20 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import background from "../images/background.avif";
 
 const Hero = () => {
   return (
     <section className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center">
+      <div
+        style={{ backgroundImage: `url(${background})` }}
+        className="absolute inset-0 bg-cover bg-center"
+      >
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 py-32 h-screen flex flex-col justify-center items-center text-center md:items-start md:text-left md:px-10">
         <motion.h1
-          className="lg:text-7xl md:text-6xl text-4xl font-bold text-blue-600 mb-6 leading-tight"
+          className="lg:text-7xl md:text-6xl text-4xl font-bold text-blue-700 mb-6 leading-tight"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}
@@ -49,7 +53,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-300 transition-colors"
+            className="bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-800 transition-colors"
           >
             Get Started
           </motion.button>

@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
-import { ServiceData } from '../data/ServiceData';
+import { motion } from "framer-motion";
+import { ServiceData } from "../data/ServiceData";
+import { Link } from "react-router-dom";
 
-const ServiceCard = ({ fadeIn, stagger } : any) => {
+const ServiceCard = ({ fadeIn, stagger }: any) => {
   return (
     <section className="py-32">
       <div className="container mx-auto px-6">
@@ -25,20 +26,29 @@ const ServiceCard = ({ fadeIn, stagger } : any) => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {ServiceData.map((service, index) => (
-            <motion.div
+            <Link
               key={index}
-              initial={fadeIn.initial}
-              whileInView={fadeIn.animate}
-              transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group bg-gray-100 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300"
+              to={`/service/${encodeURIComponent(service.title)}`}
+              className="group block"
             >
-              <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                <service.icon className="w-8 h-8 text-gray-600 group-hover:text-gray-900 transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
-            </motion.div>
+              <motion.div
+                initial={fadeIn.initial}
+                whileInView={fadeIn.animate}
+                transition={{ ...fadeIn.transition, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-gray-100 group-hover:bg-yellow-500 transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>

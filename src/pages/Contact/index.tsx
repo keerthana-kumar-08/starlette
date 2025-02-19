@@ -88,7 +88,7 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-100 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -117,7 +117,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {contactData.map((item, index) => (
               <motion.div
                 key={index}
@@ -191,7 +191,7 @@ const Contact = () => {
                       formErrors.firstName
                         ? "border-red-500"
                         : "border-gray-300"
-                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    } focus:ring-2 focus:ring-blue-500 focus:outline-none`}
                     placeholder="John"
                   />
                   {formErrors.firstName && (
@@ -211,7 +211,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       formErrors.lastName ? "border-red-500" : "border-gray-300"
-                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    } focus:ring-2 focus:ring-blue-500 focus:outline-none`}
                     placeholder="Doe"
                   />
                   {formErrors.lastName && (
@@ -233,7 +233,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       formErrors.email ? "border-red-500" : "border-gray-300"
-                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                    } focus:ring-2 focus:ring-blue-500 focus:outline-none`}
                     placeholder="john.doe@example.com"
                   />
                   {formErrors.email && (
@@ -253,8 +253,8 @@ const Contact = () => {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       formErrors.phone ? "border-red-500" : "border-gray-300"
-                    } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
-                    placeholder="+1 (234) 567-8900"
+                    } focus:ring-2 focus:ring-blue-500 focus:outline-none`}
+                    placeholder="91 123-456-7890"
                   />
                   {formErrors.phone && (
                     <p className="mt-1 text-sm text-red-500">
@@ -271,10 +271,10 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={4}
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  rows={7}
+                  className={`w-full resize-none px-4 py-3 rounded-lg border ${
                     formErrors.message ? "border-red-500" : "border-gray-300"
-                  } focus:ring-2 focus:ring-gray-400 focus:border-transparent`}
+                  } focus:ring-2 focus:ring-blue-500 focus:outline-none`}
                   placeholder="How can we help you?"
                 />
                 {formErrors.message && (
@@ -288,7 +288,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full bg-gray-900 text-white py-4 px-8 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>

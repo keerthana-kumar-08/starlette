@@ -36,15 +36,13 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
-        <div className="flex items-center h-8 gap-2">
-          <Link to="/" className="h-8 w-8">
-            <img
-              src={logo}
-              alt="logo"
-              className="h-full w-full object-contain"
-            />
+        <div className="flex items-center">
+          <Link to="/" className="h-10 w-10 flex items-center">
+            <img src={logo} alt="logo" className="h-8 w-8 object-contain" />
           </Link>
-          <span className="text-lg font-semibold text-gray-800">Starlette</span>
+          <span className="text-2xl ml-[-6px] mt-[6px] font-extrabold text-red-800">
+            Starlette
+          </span>
         </div>
 
         {/* Desktop Menu */}

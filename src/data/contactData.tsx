@@ -1,43 +1,35 @@
-import { 
-    MapPin, 
-    Phone, 
-    Mail ,
-    MessageCircle
-  } from 'lucide-react';
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export const handleWhatsAppRedirect = () => {
-    const whatsappNumber = '9488836594';
-    window.open(`https://wa.me/${whatsappNumber}`, '_blank');
-  };
-  
+  const whatsappNumber = "9488836594";
+  window.open(`https://wa.me/${whatsappNumber}`, "_blank");
+};
 
 export const contactData = [
-    {
-      icon: Phone,
-      title: 'Call Us',
-      content: '+1 (234) 567-8900',
-      action: handleWhatsAppRedirect,
-      actionText: 'Chat on WhatsApp'
-    },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      content: 'contact@example.com',
-      action: () => window.location.href = 'mailto:contact@example.com',
-      actionText: 'Send Email'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      content: '123 Business Street, Suite 100, City, State 12345',
-      action: () => window.open('https://maps.google.com', '_blank'),
-      actionText: 'Get Directions'
-    },
-    {
-      icon: MessageCircle,
-      title: 'Live Chat',
-      content: 'Available Mon-Fri, 9am-6pm',
-      action: handleWhatsAppRedirect,
-      actionText: 'Start Chat'
-    }
-  ]
+  {
+    icon: Phone,
+    title: "Call Us",
+    content: "91 948-883-6594",
+    action: handleWhatsAppRedirect,
+    actionText: "Chat on WhatsApp",
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    content: "contact@example.com",
+    action: () => (window.location.href = "mailto:starlettevaluers@gmail.com"),
+    actionText: "Send Email",
+  },
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    content:
+      "Office No.D, First Floor, SVP Complex, Siddhapudur, Coimbatore, Tamil Nadu 641044",
+    action: () =>
+      window.open(
+        "https://www.google.com/maps?q=11.020191100000002,76.9783619",
+        "_blank"
+      ),
+    actionText: "Get Directions",
+  },
+];

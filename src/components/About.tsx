@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import aboutUs from "../images/aboutUs.avif";
 
 const About = ({ fadeIn }: any) => {
   return (
@@ -39,7 +40,7 @@ const About = ({ fadeIn }: any) => {
           <div className="relative group">
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                src={aboutUs}
                 alt="Modern office"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
