@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ fadeIn, stagger }: any) => {
   return (
-    <section className="md:py-32 py-16">
+    <section className="md:py-20 py-10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={fadeIn.initial}

@@ -3,7 +3,7 @@ import aboutUs from "../images/aboutUs.avif";
 
 const About = ({ fadeIn }: any) => {
   return (
-    <section className="py-24 relative bg-gray-50">
+    <section className="md:py-20 py-10 relative bg-gray-50">
       <div className="container mx-auto px-6 md:px-12 lg:px-16">
         <motion.div
           initial={fadeIn.initial}

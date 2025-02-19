@@ -3,7 +3,7 @@ import { ChooseUsData } from '../data/ChooseUsData';
 
 const ChooseUs = ({ fadeIn, stagger }: any) => {
   return (
-    <section className="md:py-32 py-16 bg-white">
+    <section className="md:py-16 py-8 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={fadeIn.initial}
