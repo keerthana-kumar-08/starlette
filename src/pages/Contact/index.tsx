@@ -43,9 +43,9 @@ const Contact = () => {
 
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      errors.phone = "Phone number must be 10 digits";
-    }
+    }else if (!/^\d{10}$/.test(formData.phone)) {
+    errors.phone = "Phone number must be 10 digits";
+  }
 
     if (!formData.message.trim()) {
       errors.message = "Message is required";
