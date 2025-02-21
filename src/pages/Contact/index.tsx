@@ -43,8 +43,8 @@ const Contact = () => {
 
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required";
-    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
-      errors.phone = "Please enter a valid phone number";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits";
     }
 
     if (!formData.message.trim()) {
@@ -55,45 +55,44 @@ const Contact = () => {
     return Object.keys(errors).length === 0;
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-   e.preventDefault();
-   if (!validateForm()) return;
-   setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    setIsSubmitting(true);
 
-   try {
-     const response = await fetch(
-       "https://starlette-be.onrender.com/api/send-mail",
-       {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify(formData),
-       }
-     );
+    try {
+      const response = await fetch(
+        "https://starlette-be.onrender.com/api/send-mail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-     if (!response.ok) {
-       throw new Error("Failed to send message.");
-     }
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
 
-     // Reset form after successful submission
-     setFormData({
-       firstName: "",
-       lastName: "",
-       email: "",
-       phone: "",
-       message: "",
-     });
+      // Reset form after successful submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
 
-     alert("Message sent successfully!");
-   } catch (error) {
-     console.error("Error sending message:", error);
-     alert("Failed to send message. Please try again.");
-   } finally {
-     setIsSubmitting(false);
-   }
- };
-
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -194,9 +193,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="bg-white rounded-xl shadow-sm p-8"
           >
-            <h2 className="text-3xl font-bold mb-8">
-              Send us a Message
-            </h2>
+            <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
