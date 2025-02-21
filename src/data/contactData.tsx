@@ -1,7 +1,7 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export const handleWhatsAppRedirect = () => {
-  const whatsappNumber = "9488836594";
+  const whatsappNumber = "8508397737";
   window.open(`https://wa.me/${whatsappNumber}`, "_blank");
 };
 
@@ -16,7 +16,7 @@ export const contactData = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "contact@example.com",
+    content: "starlettevaluers@gmail.com",
     action: () => (window.location.href = "mailto:starlettevaluers@gmail.com"),
     actionText: "Send Email",
   },

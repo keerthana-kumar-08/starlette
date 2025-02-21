@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
@@ -7,9 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Branding Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
-              Starlette
-            </h3>
+            <h3 className="text-3xl font-bold mb-4">Starlette</h3>
             <p className="text-gray-400 mb-6">
               Creating amazing digital experiences with modern technologies and
               best practices.
@@ -44,36 +43,28 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to="/about"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#story"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Our Story
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
+                <Link
+                  to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Get in Touch
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -88,15 +79,7 @@ const Footer = () => {
                   Coimbatore 641044
                 </p>
               </address>
-              <p>info@Starletteetiq.com</p>
-              <p className="mt-2">
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  Follow us on LinkedIn
-                </a>
-              </p>
+              <p>info@starlettevaluation.com</p>
             </div>
           </div>
         </div>
