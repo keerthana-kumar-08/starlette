@@ -35,12 +35,12 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
-      <nav className="xl:mx-[10%] mx-auto px-6 py-8 flex justify-between items-center">
+      <nav className="xl:mx-[10%] mx-auto px-6 md:py-7 py-5 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="h-10 w-10 flex items-center">
+          <Link to="/" className="h-13 w-13 flex items-center">
             <img src={logo} alt="logo" className="h-8 w-8 object-contain" />
           </Link>
-          <span className="text-2xl ml-[-6px] mt-[6px] font-extrabold text-blue-800">
+          <span className="text-2xl uppercase mt-[6px] font-extrabold text-blue-800">
             Starlette
           </span>
         </div>

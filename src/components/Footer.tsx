@@ -1,5 +1,5 @@
-import { Github, Twitter, Linkedin } from 'lucide-react';
-import { Link } from 'react-router';
+import { Github, Twitter, Linkedin } from "lucide-react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -10,8 +10,8 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-3xl font-bold mb-4">Starlette</h3>
             <p className="text-gray-400 mb-6">
-              Creating amazing digital experiences with modern technologies and
-              best practices.
+              Delivering precise property valuations with expertise and
+              integrity.
             </p>
             <div className="flex space-x-4">
               <a
@@ -55,7 +55,7 @@ const Footer = () => {
                   to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Projects
+                  Services
                 </Link>
               </li>
               <li>

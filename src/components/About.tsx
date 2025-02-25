@@ -20,18 +20,22 @@ const About = ({ fadeIn }: any) => {
             <div className="mt-6 space-y-6 text-gray-700 text-lg leading-relaxed">
               <p>
                 At{" "}
-                <span className="font-semibold text-gray-900">
-                  Starlette Property Valuations
-                </span>
-                , we provide expert property valuation services tailored to meet
-                the needs of homeowners, investors, businesses, and legal
-                professionals.
+                <span className="font-semibold text-gray-900">Starlette</span>,
+                we specialize in delivering comprehensive, accurate, and timely
+                property assessments. Our commitment to quality, transparency,
+                and customer satisfaction has earned us the trust of homeowners,
+                real estate investors, developers, financial institutions, and
+                businesses alike.
               </p>
               <p>
-                Whether you're buying, selling, refinancing, or need an
-                independent valuation for legal or financial purposes, our
-                experienced team ensures data-backed, market-driven property
-                assessments that align with the latest industry standards.
+                Founded in 2023, Starlette has built a reputation for
+                excellence, leveraging deep industry knowledge and cutting-edge
+                technology to deliver valuations that are reliable and
+                insightful. Our experienced team of certified appraisers and
+                valuation experts works diligently to ensure that each
+                assessment reflects the true market value of a property. We are
+                dedicated to providing our clients with the information they
+                need to make informed choices.
               </p>
             </div>
           </div>

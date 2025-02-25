@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { contactData } from "../../data/contactData";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 interface FormData {
   firstName: string;
@@ -43,9 +44,9 @@ const Contact = () => {
 
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required";
-    }else if (!/^\d{10}$/.test(formData.phone)) {
-    errors.phone = "Phone number must be 10 digits";
-  }
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits";
+    }
 
     if (!formData.message.trim()) {
       errors.message = "Message is required";
@@ -61,16 +62,13 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        "https://starlette-be.onrender.com/api/send-mail",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/send-mail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to send message.");
@@ -124,7 +122,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
             >
-              <h2 className="md:text-5xl text-3xl">Get in Touch</h2>
+              <h2 className="md:text-5xl text-3xl">Contact Us</h2>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -132,7 +130,17 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              We're here to help and answer any questions you might have
+              We're here to help! Whether you have questions, need assistance,
+              or want to learn more about our products and services, feel free
+              to reach out.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+            >
+              We aim to respond to all emails within 24 hours.
             </motion.p>
           </div>
 
@@ -146,14 +154,11 @@ const Contact = () => {
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                 }
                 transition={{ duration: 0.5, delay: 0.2 * index }}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
               >
-                <div className="flex items-center mb-4">
-                  <div className="bg-gray-50 p-3 rounded-lg">
-                    <item.icon className="w-6 h-6 text-gray-700" />
-                  </div>
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-gray-100 group-hover:bg-yellow-500 transition-colors duration-300">
+                  <item.icon className="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300" />
                 </div>
-
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {item.title}
                 </h3>
@@ -306,7 +311,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-[#151B54] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>

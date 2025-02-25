@@ -14,7 +14,7 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-6 md:py-32 py-16 h-screen flex flex-col justify-center items-center text-center md:items-start md:text-left md:px-10">
         <motion.h1
-          className="lg:text-7xl md:text-6xl text-4xl font-bold text-blue-700 mb-6 leading-tight"
+          className="lg:text-7xl md:text-6xl text-4xl font-bold text-[#151B54] mb-6 leading-tight"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}
@@ -53,7 +53,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-800 transition-colors"
+            className="bg-[#151B54] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-800 transition-colors"
           >
             Get Started
           </motion.button>
