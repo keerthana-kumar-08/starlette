@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { valuationServices } from "../../data/ServicesData";
 import { ServiceSection } from "../../components/ServiceSection";
 import { MarketAnalysisSection } from "../../components/MarketAnalysisSection";

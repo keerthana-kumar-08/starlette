@@ -56,7 +56,21 @@ const Services = ({ fadeIn }: any) => {
         transition={fadeIn.transition}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl font-bold mb-12">Our Services</h2>
+        <motion.div
+          initial={fadeIn.initial}
+          whileInView={fadeIn.animate}
+          transition={fadeIn.transition}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <h2 className="sm:text-5xl text-3xl font-bold mb-6">
+           Our Service
+          </h2>
+          <p className="text-gray-600 text-lg">
+            We combine expertise, technology, and dedication to deliver
+            exceptional valuation services
+          </p>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
