@@ -1,6 +1,6 @@
 import Hero from '../../components/Hero';
-// import Services from '../../components/ServiceCard';
 import ChooseUs from '../../components/ChooseUs';
+import Services from '../../components/Services';
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      {/* <Services fadeIn={fadeIn} stagger={stagger} /> */}
+      <Services fadeIn={fadeIn} stagger={stagger} />
       <ChooseUs fadeIn={fadeIn} stagger={stagger} />
     </div>
   );
