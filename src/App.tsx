@@ -1,11 +1,11 @@
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import AboutUsPage from './pages/AboutUs';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import ContactUs from './pages/Contact';
-import Services from './pages/services';
-import ServiceDetail from './pages/ServiceDetail';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import AboutUsPage from "./pages/AboutUs";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import ContactUs from "./pages/Contact";
+import Services from "./pages/services";
+import ServiceDetail from "./pages/ServiceDetail";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/service/:title" element={<ServiceDetail />} />
+          <Route path="/service/:type" element={<ServiceDetail />} />
         </Routes>
         <Footer />
       </div>

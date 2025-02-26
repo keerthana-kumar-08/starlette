@@ -79,7 +79,7 @@ const Footer = () => {
                   Coimbatore 641044
                 </p>
               </address>
-              <p>info@starlettevaluation.com</p>
+              <p className="text-base md:text-xs">info@starlettevaluation.com</p>
             </div>
           </div>
         </div>

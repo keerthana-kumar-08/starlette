@@ -1,5 +1,5 @@
 import Hero from '../../components/Hero';
-import Services from '../../components/ServiceCard';
+// import Services from '../../components/ServiceCard';
 import ChooseUs from '../../components/ChooseUs';
 
 const fadeIn = {
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <Services fadeIn={fadeIn} stagger={stagger} />
+      {/* <Services fadeIn={fadeIn} stagger={stagger} /> */}
       <ChooseUs fadeIn={fadeIn} stagger={stagger} />
     </div>
   );

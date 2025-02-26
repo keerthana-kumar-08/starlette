@@ -40,7 +40,7 @@ const Navbar = () => {
           <Link to="/" className="h-13 w-13 flex items-center">
             <img src={logo} alt="logo" className="h-8 w-8 object-contain" />
           </Link>
-          <span className="text-2xl uppercase mt-[6px] font-extrabold text-blue-800">
+          <span className="md:text-3xl text-2xl uppercase mt-[6px] font-extrabold text-[#151B54]">
             Starlette
           </span>
         </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white shadow-lg fixed top-16 left-0 w-full h-[calc(100vh-4rem)] p-6 rounded-b-lg"
+            className="md:hidden bg-white shadow-lg fixed top-20 left-0 w-full h-[calc(100vh-4rem)] p-6 rounded-b-lg"
             initial="hidden"
             animate="visible"
             exit="exit"
