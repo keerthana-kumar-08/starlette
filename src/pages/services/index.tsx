@@ -82,23 +82,6 @@ const Service = () => {
       <MarketAnalysisSection {...valuationServices.marketAnalysis} />
       <PrePurchaseSaleSection {...valuationServices.prePurchaseAndSale} />
 
-      {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Ready to Get Your Property Valued?
-            </h2>
-            <p className="text-xl mb-12 opacity-90">
-              Our team of expert valuers is ready to provide you with a
-              professional assessment of your property
-            </p>
-            <ContactButton>
-              <Phone className="w-5 h-5" /> Schedule a Consultation
-            </ContactButton>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

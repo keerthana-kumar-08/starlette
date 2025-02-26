@@ -45,7 +45,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-50">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
@@ -54,7 +54,7 @@ const ServiceDetail = () => {
             alt={service.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/90" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
           <motion.div
@@ -73,7 +73,7 @@ const ServiceDetail = () => {
             <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">
               {service.title}
             </h1>
-            <p className="md:text-xl text-sm text-blue-100 max-w-2xl leading-relaxed">
+            <p className="md:text-xl text-sm text-white max-w-2xl leading-relaxed">
               {service.description}
             </p>
             <motion.div
