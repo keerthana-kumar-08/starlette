@@ -12,7 +12,7 @@ const Values = ({ fadeIn, stagger }: any) => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-6">Core Values</h2>
+          <h2 className="text-5xl text-[#151B54] font-bold mb-6">Core Values</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Our values define who we are and guide everything we do
           </p>

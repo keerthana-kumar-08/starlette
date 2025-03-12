@@ -14,7 +14,7 @@ const About = ({ fadeIn }: any) => {
         >
           {/* Text Section */}
           <div className="relative">
-            <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            <h2 className="text-5xl md:text-6xl text-[#151B54] font-extrabold leading-tight">
               About Us
             </h2>
             <div className="mt-6 space-y-6 text-gray-700 text-lg leading-relaxed">

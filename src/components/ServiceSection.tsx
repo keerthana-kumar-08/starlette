@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ProcessItem {
   title: string;
@@ -39,9 +39,16 @@ export const ServiceSection: React.FC<ServiceSectionProps> = ({
             </h3>
             <div className="space-y-4">
               {importance.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 group">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                  <span className="text-gray-700">{item}</span>
+                <div key={index} className="group">
+                  <div className="flex items-center gap-2 mb-2">
+                    <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                    <h4 className="font-semibold group-hover:text-blue-600 text-gray-800">
+                      {item.split("-")[0].trim()}
+                    </h4>
+                  </div>
+                  <p className="text-gray-600 pl-7">
+                    {item.split("-")[1].trim()}
+                  </p>
                 </div>
               ))}
             </div>
@@ -56,7 +63,7 @@ export const ServiceSection: React.FC<ServiceSectionProps> = ({
                 <div key={index} className="group">
                   <div className="flex items-center gap-2 mb-2">
                     <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
-                    <h4 className="font-semibold text-gray-800">
+                    <h4 className="font-semibold group-hover:text-blue-600 text-gray-800">
                       {item.title}
                     </h4>
                   </div>
@@ -73,9 +80,12 @@ export const ServiceSection: React.FC<ServiceSectionProps> = ({
             <div className="space-y-6">
               {types.map((type, index) => (
                 <div key={index} className="group">
-                  <h4 className="font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-                    {type.title}
-                  </h4>
+                  <div className="flex items-center gap-2 mb-2">
+                    <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                    <h4 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                      {type.title}
+                    </h4>
+                  </div>
                   <p className="text-gray-600">{type.description}</p>
                 </div>
               ))}

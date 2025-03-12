@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, TrendingUp, Scale, ArrowRight } from "lucide-react";
+import { TrendingUp, Scale, ArrowRight } from "lucide-react";
 
 interface ProcessItem {
   title: string;
@@ -55,7 +55,7 @@ export const PrePurchaseSaleSection: React.FC<PrePurchaseSaleProps> = ({
             <div className="space-y-4">
               {prePurchase.benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3 group">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                  <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                   <span className="text-gray-700">{benefit}</span>
                 </div>
               ))}
@@ -77,7 +77,7 @@ export const PrePurchaseSaleSection: React.FC<PrePurchaseSaleProps> = ({
             <div className="space-y-4">
               {preSale.benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3 group">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                  <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                   <span className="text-gray-700">{benefit}</span>
                 </div>
               ))}
@@ -112,7 +112,7 @@ export const PrePurchaseSaleSection: React.FC<PrePurchaseSaleProps> = ({
             <div className="space-y-4">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3 group">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                  <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                   <span className="text-gray-700">{benefit}</span>
                 </div>
               ))}

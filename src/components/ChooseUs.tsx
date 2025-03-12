@@ -12,7 +12,7 @@ const ChooseUs = ({ fadeIn, stagger }: any) => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
-          <h2 className="sm:text-5xl text-3xl font-bold mb-6">
+          <h2 className="sm:text-5xl text-3xl text-[#151B54] font-bold mb-6">
             Why Choose Us?
           </h2>
           <p className="text-gray-600 text-lg">

@@ -43,6 +43,6 @@ h2 {
   }
 
   .section-title {
-    @apply text-4xl font-bold mb-8 text-gray-800 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-blue-600;
+    @apply text-4xl font-bold mb-8 text-[#151B54] relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-blue-600;
   }
 }

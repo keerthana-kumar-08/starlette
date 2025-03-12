@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, BarChart } from "lucide-react";
+import { BarChart, ArrowRight } from "lucide-react";
 
 interface ComponentItem {
   title: string;
@@ -46,7 +46,7 @@ export const MarketAnalysisSection: React.FC<MarketAnalysisSectionProps> = ({
                   <ul className="space-y-4">
                     {component.items.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3 group">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                         <span className="text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -78,7 +78,7 @@ export const MarketAnalysisSection: React.FC<MarketAnalysisSectionProps> = ({
               <div className="space-y-4">
                 {importance.map((item, index) => (
                   <div key={index} className="flex items-start gap-3 group">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                    <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}

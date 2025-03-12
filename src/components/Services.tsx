@@ -63,7 +63,7 @@ const Services = ({ fadeIn }: any) => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
-          <h2 className="sm:text-5xl text-3xl font-bold mb-6">
+          <h2 className="sm:text-5xl text-[#151B54] text-3xl font-bold mb-6">
            Our Service
           </h2>
           <p className="text-gray-600 text-lg">
@@ -81,7 +81,7 @@ const Services = ({ fadeIn }: any) => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
-              <service.icon className="w-12 h-12 text-yellow-400 mb-6" />
+              <service.icon className="w-12 h-12 hover:text-white bg-gray-200 hover:bg-yellow-500 rounded-md p-2 mb-6 cursor-pointer" />
               <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </motion.div>
