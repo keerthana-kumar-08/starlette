@@ -156,8 +156,8 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.2 * index }}
                 className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-gray-100 group-hover:bg-yellow-500 transition-colors duration-300">
-                  <item.icon className="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300" />
+                <div className="w-14 h-14 flex hover:text-white bg-gray-200 hover:bg-yellow-500 rounded-md p-2 mb-6 items-center justify-center">
+                  <item.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {item.title}

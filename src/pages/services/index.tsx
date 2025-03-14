@@ -1,24 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { valuationServices } from "../../data/ServicesData";
-import { ServiceSection } from "../../components/ServiceSection";
-import { MarketAnalysisSection } from "../../components/MarketAnalysisSection";
-import { PrePurchaseSaleSection } from "../../components/PrePurchaseSaleSection";
-import { serviceIcons } from "../../data/serviceIcons";
 import background from "../../images/service6.avif";
-
-const IconWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="p-4 bg-blue-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 flex flex-row gap-2 justify-center items-center">
-    {children}
-  </div>
-);
+import Services from "../../components/Services";
 
 const ContactButton = ({ children }: { children: React.ReactNode }) => (
   <button className="bg-[#151B54] text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2 mx-auto shadow-md hover:shadow-lg">
     {children}
   </button>
 );
+
+const fadeIn = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] },
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Service = () => {
   return (
@@ -56,35 +60,7 @@ const Service = () => {
         </div>
       </header>
 
-      {/* Service Icons */}
-      <div className="container mx-auto px-4 -mt-16 relative z-10">
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            {serviceIcons.map((item, index) => (
-              <Link
-                to={`/service/${item.type}`}
-                key={index}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="text-center hover-scale"
-              >
-                <IconWrapper>
-                  {item.icon}{" "}
-                  <p className="mt-1 font-semibold text-gray-700">
-                    {item.label}
-                  </p>
-                </IconWrapper>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Service Sections */}
-      <ServiceSection {...valuationServices.residential} />
-      <ServiceSection {...valuationServices.commercial} />
-      <ServiceSection {...valuationServices.industrial} />
-      <MarketAnalysisSection {...valuationServices.marketAnalysis} />
-      <PrePurchaseSaleSection {...valuationServices.prePurchaseAndSale} />
+      <Services fadeIn={fadeIn} stagger={stagger} />
     </div>
   );
 };

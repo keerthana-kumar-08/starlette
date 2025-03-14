@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Check, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import residential from "../../images/service1.avif";
 import commercial from "../../images/service2.avif";
@@ -9,6 +9,9 @@ import industrial from "../../images/service3.avif";
 import marketAnalysis from "../../images/service4.avif";
 import prePurchaseAndSale from "../../images/service5.avif";
 import { valuationServices } from "../../data/ServicesData";
+import { MarketAnalysisSection } from "../../components/MarketAnalysisSection";
+import { PrePurchaseSaleSection } from "../../components/PrePurchaseSaleSection";
+import { ServiceSection } from "../../components/ServiceSection";
 
 const serviceImages: Record<string, string> = {
   residential,
@@ -43,6 +46,24 @@ const ServiceDetail = () => {
       </div>
     );
   }
+
+  const renderContent = () => {
+    if (type === marketAnalysis)
+      return <MarketAnalysisSection {...valuationServices.marketAnalysis} />;
+
+    if (type === prePurchaseAndSale)
+      return (
+        <PrePurchaseSaleSection {...valuationServices.prePurchaseAndSale} />
+      );
+
+    if (type === residential)
+      return <ServiceSection {...valuationServices.residential} />;
+
+    if (type === industrial)
+      return <ServiceSection {...valuationServices.industrial} />;
+
+    return <ServiceSection {...valuationServices.commercial} />;
+  };
 
   return (
     <div className="min-h-screen">
@@ -91,63 +112,7 @@ const ServiceDetail = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Content Section */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="max-w-5xl mx-auto">
-          {/* Importance Section */}
-          {"importance" in service && service.importance && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Why It Matters
-              </h2>
-              <ul className="space-y-4">
-                {service.importance.map((point, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center text-lg text-gray-700"
-                  >
-                    <Check className="text-green-500 w-5 h-5 mr-3" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-
-          {/* Process Section */}
-          {"process" in service && service.process && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-12"
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Our Process
-              </h2>
-              <div className="space-y-6">
-                {service.process.map((step, index) => (
-                  <div
-                    key={index}
-                    className="p-6 bg-white rounded-xl shadow-md border-l-4 border-blue-600"
-                  >
-                    <h3 className="text-2xl font-semibold text-blue-800 mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-700">{step.description}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </div>
+      {renderContent()}
     </div>
   );
 };
