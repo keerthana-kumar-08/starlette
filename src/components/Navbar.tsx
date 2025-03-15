@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { ArrowUp, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import navLinks from "../data/navLinks";
 import logo from "../images/logo.png";
@@ -37,12 +37,12 @@ const Navbar = () => {
     <header className="sticky top-0 bg-white shadow-md z-50 w-full">
       <nav className="xl:mx-[10%] mx-auto px-6 md:py-7 py-5 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="h-13 w-13 flex items-center">
+          <Link to="/" className="h-13 w-13 flex items-center gap-1" onClick={handleOnClick}>
             <img src={logo} alt="logo" className="h-8 w-8 object-contain" />
+            <span className="md:text-3xl text-2xl uppercase mt-[6px] font-extrabold text-[#151B54]">
+              Starlette
+            </span>
           </Link>
-          <span className="md:text-3xl text-2xl uppercase mt-[6px] font-extrabold text-[#151B54]">
-            Starlette
-          </span>
         </div>
 
         {/* Desktop Menu */}
@@ -105,6 +105,13 @@ const Navbar = () => {
         onClick={openWhatsApp}
       >
         <img src={whatsapp} alt="WhatsApp" className="w-10 h-10" />
+      </button>
+
+      <button
+        className="fixed bottom-24 right-6 bg-blue-800 text-white p-3 rounded-full shadow-xl hover:scale-110 transition-all duration-300 ease-in-out"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <ArrowUp className="w-10 h-10" />
       </button>
     </header>
   );

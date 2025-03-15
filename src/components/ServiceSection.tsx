@@ -25,7 +25,7 @@ export const ServiceSection: React.FC<ServiceSectionProps> = ({
   types,
 }) => {
   return (
-    <div className="py-24 bg-white">
+    <div className="pt-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="section-title">{title}</h2>
         <p className="text-lg text-gray-600 mb-16 max-w-4xl leading-relaxed">

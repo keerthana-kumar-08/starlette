@@ -2,6 +2,10 @@ import { Github, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router";
 
 const Footer = () => {
+  const handleOnClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,6 +50,9 @@ const Footer = () => {
                 <Link
                   to="/about"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() => {
+                    handleOnClick();
+                  }}
                 >
                   About Us
                 </Link>
@@ -54,6 +61,9 @@ const Footer = () => {
                 <Link
                   to="/services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() => {
+                    handleOnClick();
+                  }}
                 >
                   Services
                 </Link>
@@ -62,6 +72,9 @@ const Footer = () => {
                 <Link
                   to="/contact"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() => {
+                    handleOnClick();
+                  }}
                 >
                   Get in Touch
                 </Link>
@@ -79,7 +92,9 @@ const Footer = () => {
                   Coimbatore 641044
                 </p>
               </address>
-              <p className="text-base md:text-xs">info@starlettevaluation.com</p>
+              <p className="text-base md:text-xs">
+                info@starlettevaluation.com
+              </p>
             </div>
           </div>
         </div>

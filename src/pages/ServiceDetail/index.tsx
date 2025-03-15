@@ -22,7 +22,7 @@ const serviceImages: Record<string, string> = {
 };
 
 const ContactButton = ({ children }: { children: React.ReactNode }) => (
-  <button className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-1">
+  <button className="bg-[#151B54] text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-1">
     {children}
   </button>
 );
@@ -48,21 +48,70 @@ const ServiceDetail = () => {
   }
 
   const renderContent = () => {
-    if (type === marketAnalysis)
+    if (type === "marketAnalysis")
       return <MarketAnalysisSection {...valuationServices.marketAnalysis} />;
 
-    if (type === prePurchaseAndSale)
+    if (type === "prePurchaseAndSale")
       return (
         <PrePurchaseSaleSection {...valuationServices.prePurchaseAndSale} />
       );
 
-    if (type === residential)
+    if (type === "residential")
       return <ServiceSection {...valuationServices.residential} />;
 
-    if (type === industrial)
+    if (type === "industrial")
       return <ServiceSection {...valuationServices.industrial} />;
 
     return <ServiceSection {...valuationServices.commercial} />;
+  };
+
+  const renderCallToAction = () => {
+    if (type === "marketAnalysis")
+      return (
+        <p className="mb-14 flex justify-center text-xl text-gray-600">
+          If you need a detailed
+          <span className="font-bold text-[#151B54] ms-1">
+            market report and professional property valuation,
+          </span>
+          <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+            contact us
+          </Link>
+          for expert insights and accurate assessments.
+        </p>
+      );
+
+    if (type === "prePurchaseAndSale")
+      return (
+        <p className="mb-14 flex justify-center text-xl text-gray-600">
+          Whether you're{" "}
+          <span className="font-bold text-[#151B54] ms-1">
+            buying or selling
+          </span>
+          , a professional valuation ensures you get the{" "}
+          <span className="font-bold text-[#151B54] ms-1">
+            best deal possible.
+          </span>
+          <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+            Contact us
+          </Link>
+          today for an expert property assessment.
+        </p>
+      );
+
+    return (
+      <p className="mb-14 flex justify-center text-xl text-gray-600">
+        If you need a trusted, professional valuation for your{" "}
+        <span className="font-bold text-[#151B54] ms-1">
+          <span className="mx-1">{type}</span>
+          property
+        </span>
+        ,
+        <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+          contact us
+        </Link>
+        today to get started!
+      </p>
+    );
   };
 
   return (
@@ -113,6 +162,7 @@ const ServiceDetail = () => {
         </div>
       </div>
       {renderContent()}
+      {renderCallToAction()}
     </div>
   );
 };
