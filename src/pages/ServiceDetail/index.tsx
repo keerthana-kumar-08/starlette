@@ -73,7 +73,7 @@ const ServiceDetail = () => {
           <span className="font-bold text-[#151B54] ms-1">
             market report and professional property valuation,
           </span>
-          <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+          <Link className="font-bold text-[#151B54] mx-1" to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             contact us
           </Link>
           for expert insights and accurate assessments.
@@ -91,7 +91,7 @@ const ServiceDetail = () => {
           <span className="font-bold text-[#151B54] ms-1">
             best deal possible.
           </span>
-          <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+          <Link className="font-bold text-[#151B54] mx-1" to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             Contact us
           </Link>
           today for an expert property assessment.
@@ -106,7 +106,7 @@ const ServiceDetail = () => {
           property
         </span>
         ,
-        <Link className="font-bold text-[#151B54] mx-1" to="/contact">
+        <Link className="font-bold text-[#151B54] mx-1" to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           contact us
         </Link>
         today to get started!
