@@ -86,7 +86,7 @@ const ServiceDetail = () => {
 
     if (type === "prePurchaseAndSale")
       return (
-        <p className="mb-14 flex justify-center text-xl text-gray-600">
+        <p className="mb-14 text-center text-xl text-gray-600">
           Whether you're{" "}
           <span className="font-bold text-[#151B54] ms-1">
             buying or selling
@@ -107,7 +107,7 @@ const ServiceDetail = () => {
       );
 
     return (
-      <p className="mb-14 flex justify-center text-xl text-gray-600">
+      <p className="mb-14 text-center text-xl text-gray-600">
         If you need a trusted, professional valuation for your{" "}
         <span className="font-bold text-[#151B54] ms-1">
           <span className="mx-1">{type}</span>
@@ -155,9 +155,9 @@ const ServiceDetail = () => {
             <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">
               {service.title}
             </h1>
-            <p className="md:text-xl text-sm text-white max-w-2xl leading-relaxed">
+            {/* <p className="md:text-xl text-sm text-white max-w-2xl leading-relaxed">
               {service.description}
-            </p>
+            </p> */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
